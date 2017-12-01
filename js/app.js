@@ -19,9 +19,11 @@ var Teams = {
     "Score":
         {"teamOne": NextMatchData['scores'][0],
          "teamTwo": NextMatchData['scores'][1],
-         }
+         },
+    "Start": NextMatchData['startDate'],
 };
-console.log(Teams);
+var MatchDate = new Date(Teams['Start']);
+document.getElementById("startDate").innerHTML = new Date(Teams['Start']);
 document.getElementById('logo1').src = Teams["First team"]["logo"];
 document.getElementById("team1").innerHTML = Teams["First team"]["name"];
 document.getElementById("team2").innerHTML = Teams["Second team"]["name"];

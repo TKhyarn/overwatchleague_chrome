@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Next Overwatch League Match",
-	"description": "lol",
+	"description": "my first extension. Find the next Overwatch League Match",
 	"version": "1.0",
 	"permissions": [
 		"http://*/*",
