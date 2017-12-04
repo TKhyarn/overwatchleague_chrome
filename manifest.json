@@ -1,0 +1,17 @@
+{
+	"manifest_version": 2,
+	"name": "Next Overwatch League Match",
+	"description": "my first extension. Find the next Overwatch League Match",
+	"version": "1.0",
+	"permissions": [
+		"http://*/*",
+		"https://*/*"
+	],
+	"browser_action": {
+		"default_icon":"img/small_logo.png",
+		"default_popup": "popup.html"
+	},
+	"icons": {
+		"128": "img/gm.png"
+	}
+}
