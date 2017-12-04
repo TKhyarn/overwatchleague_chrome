@@ -1,30 +1,36 @@
 const req = new XMLHttpRequest();
-req.open('GET', 'https://secret_url.com', false);
+req.open('GET', 'https://overwatchleague.com/fr-fr/api/schedule', false);
 req.send(null);
 
 if (req.status !== 200) {
-     alert("Tout cassé");
+     alert("Error");
 }
 var myData = JSON.parse(req.responseText);
-var NextMatchData = myData['data']['stages'][0]['matches'][0];
-var Teams = {
-    "First team":
-        {"name": NextMatchData['competitors'][0]['name'],
-         "logo": NextMatchData['competitors'][0]['logo'],
-         },
-    "Second team":
-        {"name": NextMatchData['competitors'][1]['name'],
-         "logo": NextMatchData['competitors'][1]['logo'],
-         },
-    "Score":
-        {"teamOne": NextMatchData['scores'][0],
-         "teamTwo": NextMatchData['scores'][1],
-         },
-    "Start": NextMatchData['startDate'],
-};
-var MatchDate = new Date(Teams['Start']);
-document.getElementById("startDate").innerHTML = new Date(Teams['Start']);
-document.getElementById('logo1').src = Teams["First team"]["logo"];
-document.getElementById("team1").innerHTML = Teams["First team"]["name"];
-document.getElementById("team2").innerHTML = Teams["Second team"]["name"];
-document.getElementById('logo2').src = Teams["Second team"]["logo"];
+var myData_nbStages = Object.keys(myData['data']['stages']).length;
+var myData_nbMatches = 0;
+var today = new Date();
+var myData_current = null;
+loop1:
+for (var i = 0; i < myData_nbStages; i++) {
+	myData_nbMatches = Object.keys(myData['data']['stages'][i]['matches']).length;
+	loop2:
+	for (var y = 0; y < myData_nbMatches; y++) {
+		myData_current = myData['data']['stages'][i]['matches'][y];
+		if (new Date(myData_current['startDate']) > today) {
+			console.log(myData_current);
+			break loop1;
+		}
+
+	}
+}
+
+var Team1 = myData_current['competitors'][0]['name'];
+var Team2 = myData_current['competitors'][1]['name'];
+var logo1 = myData_current['competitors'][0]['logo'];
+var logo2 = myData_current['competitors'][1]['logo'];
+var MatchDate = dateFormat(myData_current['startDate'], "dd mmm yy h:MM TT o Z");
+var teams = Team1 +" - " + Team2;
+document.getElementById("startDate").innerHTML = MatchDate;
+document.getElementById('logo1').src = logo1;
+document.getElementById("teams").innerHTML = teams;
+document.getElementById('logo2').src = logo2;

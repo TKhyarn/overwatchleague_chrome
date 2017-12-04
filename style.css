@@ -1,6 +1,19 @@
 body {
 white-space: nowrap;
 }
+img {
+	height: 42px;
+	width: 42px;
+}
 span {
 	display: inline-block;
+	vertical-align: middle ;
+}
+#date {
+	text-align: center;
+}
+
+#teams {
+	height: 42px;
+	vertical-align: middle;
 }
