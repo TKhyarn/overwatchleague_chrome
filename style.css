@@ -1,5 +1,5 @@
 html {
-	background-image: url("/img/bg.png");
+	background-color: grey;
 	background-repeat: no-repeat;
 	height: 100px;
 	width: 415px;
@@ -27,5 +27,6 @@ span {
 #teams {
 	height: 42px;
 	vertical-align: middle;
+	padding: 2px;
 
 }
