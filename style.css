@@ -26,9 +26,42 @@ body {
 	width: 	50%;
 }
 
-.logo, .name {
-	float: 	left;
+#logo {
+	height: 60px;
+	width: 60px;
+	padding-top: 5px;
 }
+#teamB span {
+    float: right;
+    text-align: right;
+    height: 34px;
+    width: 110px;
+    padding-right: 10px;
+    font-size: 14px;
+    padding-top: 25px;
+}
+
+#logoB {
+	float: right;
+	padding-top: 15px;
+	padding-right: 10px;
+} 
+
+#teamA span {
+    float: left;
+    text-align: left;
+    height: 34px;
+    width: 110px;
+    padding-left: 10px;
+    font-size: 14px;
+    padding-top: 25px;
+}
+#logoA {
+	float: left;
+	padding-top: 15px;
+	padding-left: 10px;
+} 
+
 
 #versus {
 	font-size: 33px;
