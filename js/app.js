@@ -1,5 +1,5 @@
 const req = new XMLHttpRequest();
-req.open('GET', 'https://overwatchleague.com/en-us/api/schedule', false);
+req.open('GET', 'https://api.overwatchleague.com/schedule?locale=en_US', false);
 req.send(null);
 
 if (req.status === 200) {
@@ -45,11 +45,30 @@ else {
 		var currentStage = myData['data']['liveMatch']['bracket']['stage']['title'];
 		var MatchDate = dateFormat(myData['data']['liveMatch']['startDate'], "dd mmm yy h:MM TT");
 	}
+	else {
+		var error = 1;
+		var Team1 = "I'm sorry but";
+		var Team2 = "No match has been found";
+		var logo1 = "";
+		var logo2 = "";
+		var currentStage = "Season off";
+		var MatchDate = "See you soon";
+	}
 }
 
 $("#stage span").html(currentStage);
 $("#date span").html(MatchDate);
-$("#logoA").attr('src', logo1);
-$("#logoB").attr('src', logo2);
+
+if (error == 1) {
+	$("#logoA").remove();
+	$("#logoB").remove();
+	$("#versus").remove();
+
+}
+else  {
+	$("#logoA").attr('src', logo1);
+	$("#logoB").attr('src', logo2);
+	
+}
 $("#teamA span").html(Team1);
 $("#teamB span").html(Team2);
