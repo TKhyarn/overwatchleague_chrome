@@ -18,7 +18,7 @@ if (req.status === 200) {
 		loop2:
 		for (var y = 0; y < myData_nbMatches; y++) {
 			myData_current = myData['data']['stages'][i]['matches'][y];
-			if (new Date(myData_current['startDate']) > today) {
+			if (new Date(myData_current['startDate']) > today && myData_current['competitors'][0] != null) {
 				break loop1;
 			}
 
