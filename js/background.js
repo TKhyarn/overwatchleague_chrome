@@ -1,5 +1,6 @@
 
 var notifPoped = null;
+var notification = null;
 var ajax_call = function() {
 	$.ajax({
 		type: "GET",
@@ -12,7 +13,7 @@ var ajax_call = function() {
 				chrome.browserAction.getBadgeBackgroundColor;
 				chrome.browserAction.setBadgeBackgroundColor({color: "#2ded2d"});
 				notifPoped = true;
-				var notification = new Notification("Cheers love!", {
+				notification = new Notification("Cheers love!", {
 					icon: 'img/Stream_img.png',
 					body: "The stream's here ! \n Click on!",
 					requireInteraction: true     
@@ -32,8 +33,10 @@ var ajax_call = function() {
 						chrome.browserAction.setBadgeBackgroundColor({color: "#00FF00"});
 					}
 				});
-
-
+				if (notification != null){
+					notification.close();
+					notification = null;
+				}
 			}
 		}
 	});
