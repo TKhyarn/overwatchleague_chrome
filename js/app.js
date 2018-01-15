@@ -1,10 +1,10 @@
 const req = new XMLHttpRequest();
-req.open('GET', 'https://overwatchleague.com/en-us/api/live-match?locale=en-us', false);
+req.open('GET', 'https://api.overwatchleague.com/live-match?locale=en-us', false);
 req.send(null);
 if (req.status === 200 ) {
 	var myData = JSON.parse(req.responseText);
 }
-if (myData && !isNaN(myData['data']['liveMatch'])) {
+if (myData && Object.keys(myData['data']['liveMatch']).length != 0) {
 	var Team1 = myData['data']['liveMatch']['competitors'][0]['name'];
 	var Team2 = myData['data']['liveMatch']['competitors'][1]['name'];
 	var logo1 = myData['data']['liveMatch']['competitors'][0]['logo'];
