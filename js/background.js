@@ -26,7 +26,7 @@ var ajax_call = function() {
 					this.close();
 				}
 			}
-			else if (data.data.status == -1){
+			else if (data.data.length == 0){
 				notifPoped = false;
 				var txt = chrome.browserAction.getBadgeText({}, function(result) { 
 					if (result == "LIVE") {
