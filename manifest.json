@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Overwatch League Reminder",
 	"description": "Be informed of the date of the next match and notify when the stream starts.",
-	"version": "1.0.7",
+	"version": "1.0.71",
 	"permissions": [
 		"http://*/*",
 		"https://*/*",
