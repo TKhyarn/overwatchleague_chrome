@@ -44,9 +44,7 @@ else {
 			var logo2 = myData_current['competitors'][1]['logo'];
 			var MatchDate = dateFormat(myData_current['startDate'], "dd mmm yy h:MM TT");
 		}
-		
-	}
-	else {
+		else {
 			var error = 1;
 			var Team1 = "I'm sorry but";
 			var Team2 = "No match has been found";
@@ -55,6 +53,9 @@ else {
 			var currentStage = "Season off";
 			var MatchDate = "See you soon";
 	}
+		
+	}
+	
 
 }
 $("#stage span").html(currentStage);
